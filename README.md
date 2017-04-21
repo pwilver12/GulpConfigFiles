@@ -26,24 +26,27 @@ Let's update your `~/.bash_profile` or `~/.zshrc` file with a nifty `project_ini
 Open `~/.bash_profile` or `~/.zshrc` in your favorite text editor and add this function:
 
 ```
-project_init() {
-  echo "#### 1. Pulling down the most recent config files."
+function project_init() {
+  echo "#### 1. Initializing new local git repo"
+  git init
+  echo "#### 2. Pulling down the most recent config files."
   cd ~/github/apps/GulpConfigFiles
   git pull origin master
-  echo "#### 2. Switching back to the new project"
+  echo "#### 3. Switching back to the new project"
   cd -
-  echo "#### 3. Creating project directories and files"
+  echo "#### 4. Creating project directories and files"
   mkdir src src/js src/js/modules src/sass src/sass/partials src/views src/views/pages src/views/partials build build/js build/css build/html
-  touch src/js/index.js src/sass/styles.sass src/views/pages/index.ejs
+  touch README.md src/js/index.js src/sass/styles.sass src/views/pages/index.ejs
+  echo "# ${PWD##*/}" > README.md
   cp -r ~/github/apps/GulpConfigFiles/.eslintignore .
   cp -r ~/github/apps/GulpConfigFiles/.eslintrc .
   cp -r ~/github/apps/GulpConfigFiles/.gitignore .
   cp -r ~/github/apps/GulpConfigFiles/.babelrc .
   cp -r ~/github/apps/GulpConfigFiles/package.json .
   cp -r ~/github/apps/GulpConfigFiles/gulpfile.babel.js .
-  echo "#### 4. Deleting some extra stuff"
+  echo "#### 5. Deleting some extra stuff"
   rm -rf node_modules
-  echo "#### 5. Don't forget to npm install!"
+  echo "#### 6. Don't forget to npm install!"
 }
 ```
 
