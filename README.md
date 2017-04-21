@@ -47,7 +47,10 @@ project_init() {
 }
 ```
 
-Save and open up your command line (or reload your profile if your terminal is already open: `source ~/.bash_profile` or `source ~/.zshrc`).
+Save and open up your command line — or reload your profile if your terminal is already open:
+```
+source ~/.bash_profile OR source ~/.zshrc
+```
 
 ### 3. Start your project
 Navigate to an existing project directory, or create a new one. Call `project_init` and get to work!
