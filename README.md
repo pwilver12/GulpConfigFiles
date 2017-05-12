@@ -1,5 +1,5 @@
 # GulpConfigFiles
-A utility repo for initializing a new git repository equipped with Gulp, built in and compatible with ES6 (thanks to [Mark Goodyear's helpful writeup](https://markgoodyear.com/2015/06/using-es6-with-gulp/))!
+A utility repo for initializing a new git repository equipped with Gulp, built in and compatible with ES6 (thanks to some Babel trickery)!
 
 ### 1. Create a home for this repository
 At your user root directory `~/` make sure you have a `/github` directory.
@@ -43,7 +43,7 @@ function project_init() {
   cp -r ~/github/apps/GulpConfigFiles/.gitignore .
   cp -r ~/github/apps/GulpConfigFiles/.babelrc .
   cp -r ~/github/apps/GulpConfigFiles/package.json .
-  cp -r ~/github/apps/GulpConfigFiles/gulpfile.babel.js .
+  cp -r ~/github/apps/GulpConfigFiles/gulpfile.js .
   echo "#### 5. Deleting some extra stuff"
   rm -rf node_modules
   echo "#### 6. Don't forget to npm install!"
@@ -63,10 +63,10 @@ $ cd new-project OR mkdir new-project && cd new-project
 $ project_init
 $ npm install
 ```
-Always remember to `npm install` once the init script has completed. This will ensure that your `gulpfile.babel.js` works as expected.
+Always remember to `npm install` once the init script has completed. This will ensure that your `gulpfile.js` works as expected.
 
 ### 4. Gulp...
-At this point, you shouldn't need to do anything more than call `gulp` in the command line. This will kick off the build processes for your `sass`, `js` and `ejs` assets.
+At this point, you shouldn't need to do anything more than execute `npm run watch` in the command line. This will kick off the build processes for your `sass`, `js` and `ejs` assets, running your `gulpfile.js` through Babel (in order to read the ES6 syntax properly).
 
 ### 5. ESlint goodness..
 I've added support for `eslint`, a command line utility to check the validity and integrity of your JavaScript code (supports both ES5 and ES6 formats). A prerequisite is that you have the following libraries installed globally (no way around this for now):
