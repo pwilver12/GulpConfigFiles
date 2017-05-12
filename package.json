@@ -5,7 +5,8 @@
   "main": "./build/js/bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon build/js/bundle.js"
+    "start": "nodemon build/js/bundle.js",
+    "watch": "babel-node ./node_modules/.bin/gulp",
   },
   "author": "Patrick Wilver",
   "license": "ISC",
