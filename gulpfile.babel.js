@@ -77,10 +77,10 @@ gulp.task('ejs', () =>
     }).on('error', $$.util.log))
     .pipe(gulp.dest(paths.dest.html)));
 
-// // Reload html file when changes are saved
-// gulp.task('html', () =>
-//   gulp.src(paths.src.html)
-//   .on('end', reload));
+// Reload html file when changes are saved
+gulp.task('html', () =>
+  gulp.src(paths.src.html)
+  .on('end', reload));
 
 gulp.task('serve', () => {
   browserSync.init({
@@ -89,7 +89,7 @@ gulp.task('serve', () => {
   });
   gulp.watch(paths.src.sass, ['sass']);
   gulp.watch(paths.src.js, ['js']);
-  gulp.watch(paths.src.html, ['ejs']);
+  gulp.watch(paths.src.html, ['ejs', 'html']);
 });
 
 // The default task (called when you run `gulp` from cli)
